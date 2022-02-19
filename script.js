@@ -1,6 +1,6 @@
 var task = document.getElementById("task").value;
 
-let taskArray = ["Ankita", "Amit", "Amita"];
+let taskArray = ["Ankita", "Amit", "Amita","Amita"];
 
 // create a new task in array list
 function addTask() {
