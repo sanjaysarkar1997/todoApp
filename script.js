@@ -64,7 +64,9 @@ function isCompleted(value) {
 
 // delete task from the list
 function deleteTask(index) {
-  // taskArray.splice(index, 1);
+  taskArray.splice(index, 1);
+
   displayTask();
 }
+
 displayTask();
