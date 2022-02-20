@@ -1,8 +1,12 @@
 var task = document.getElementById("task").value;
 let taskArray = [
   {
-    competed: false,
+    completed: false,
     value: "Learn Javascript",
+  },
+  {
+    completed: true,
+    value: "Learn Python",
   },
 ];
 
@@ -23,15 +27,41 @@ function displayTask() {
   let toDOs = "";
   for (var i = 0; i < taskArray.length; i++) {
     toDOs += `<li class="task"id="task1">
-    <input type="checkbox" onchange="checkTask()"/>
+
+        ${
+          !isCompleted(taskArray[i].completed) ? (
+            `<input type="checkbox" onchange="checkTask(${i})" />`
+          ) : (
+            `<div style="width:40px"></div>`
+          )
+        }
+        <span class="${isCompleted(taskArray[i].completed)}">
         ${taskArray[i].value}
-        <button class="delete-task" onclick="deleteTask(${i})">
-        <img class="delete-img" src="https://img.icons8.com/material-outlined/24/000000/filled-trash.png"/>
-        </button>
+        </span>
+        ${
+          !isCompleted(taskArray[i].completed)
+            ? `<button onclick="deleteTask(${i})" class="delete-task">
+            <img class="delete-img" src="https://img.icons8.com/material-outlined/24/000000/filled-trash.png"/>
+            </button>`
+            : `<div style="width:40px"></div>`
+        }
     </li>`;
   }
   taskList.innerHTML = toDOs;
 }
+
+function checkTask(index) {
+  console.log(index);
+}
+
+function isCompleted(value) {
+  if (value) {
+    return "completed";
+  } else {
+    return "";
+  }
+}
+
 // delete task from the list
 function deleteTask(index) {
   // taskArray.splice(index, 1);
