@@ -2,15 +2,10 @@ var task = document.getElementById("task").value;
 
 // some of the tasks
 let taskArray = [
-  "Buy milk",
-  "Go to the gym",
-  "Do laundry",
-  "Clean the house",
-  "Clean the car",
-  "Clean the bathroom",
-  "Clean the kitchen",
-  "Clean the garden",
-  "Clean the yard",
+  {
+    competed: false,
+    value: "Learn Javascript",
+  },
 ];
 
 // create a new task in array list
@@ -31,7 +26,7 @@ function displayTask() {
   let toDOs = "";
   for (var i = 0; i < taskArray.length; i++) {
     toDOs += `<li class="task">
-        ${taskArray[i]}<button class="delete-task" onclick="deleteTask(${i})">
+        ${taskArray[i].value}<button class="delete-task" onclick="deleteTask(${i})">
         <img class="delete-img" src="https://img.icons8.com/material-outlined/24/000000/filled-trash.png"/>
         </button>
     </li>`;
@@ -41,7 +36,7 @@ function displayTask() {
 
 // delete task from the list
 function deleteTask(index) {
-  taskArray.splice(index, 1);
+  // taskArray.splice(index, 1);
   displayTask();
 }
 
