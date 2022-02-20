@@ -27,17 +27,16 @@ function displayTask() {
   let toDOs = "";
   for (var i = 0; i < taskArray.length; i++) {
     toDOs += `<li class="task"id="task1">
-
         ${
-          !isCompleted(taskArray[i].completed) ? (
-            `<input type="checkbox" onchange="checkTask(${i})" />`
-          ) : (
-            `<div style="width:40px"></div>`
-          )
+          !isCompleted(taskArray[i].completed)
+            ? `<input type="checkbox" onchange="checkTask(${i})" />`
+            : `<div style="width:40px"></div>`
         }
+
         <span class="${isCompleted(taskArray[i].completed)}">
         ${taskArray[i].value}
         </span>
+
         ${
           !isCompleted(taskArray[i].completed)
             ? `<button onclick="deleteTask(${i})" class="delete-task">
@@ -51,7 +50,8 @@ function displayTask() {
 }
 
 function checkTask(index) {
-  console.log(index);
+  taskArray[index].completed = !taskArray[index].completed;
+  displayTask();
 }
 
 function isCompleted(value) {
