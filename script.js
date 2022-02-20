@@ -13,7 +13,7 @@ function addTask() {
     alert("Please enter a task");
     return;
   }
-  taskArray.push(task);
+  taskArray.push({ value: task, completed: false });
   document.getElementById("task").value = "";
   displayTask();
 }
